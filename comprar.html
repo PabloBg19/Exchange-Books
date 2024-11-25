@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedir libro</title>
+    <style>
+        body{
+            background-image: url(Imagenes/0b66e000-e511-4187-848b-25a1ca77c544.webp);
+        }
+        .pedir
+        {
+            background: #003100d0;
+            justify-content: center;
+            display: block;
+            font-size: 1.2em;
+            padding: 10px;
+            border-radius: 8px;
+            max-width: 300px;
+            width: 90%; 
+            box-shadow: 0 4px 15px rgba(1, 65, 30, 0.3);
+            color: antiquewhite;
+        }
+    </style>
+    <style>
+        .Titulo
+            {
+                background-color: #003100;
+                color: aliceblue;
+            }
+    </style>
+    <style>
+        .sexo{
+            display: block;
+        }
+    </style>
+    <style>
+        .img{
+            background-image: url(Imagenes/0b66e000-e511-4187-848b-25a1ca77c544.webp);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+    </style>
+    <style>
+        .fin{
+            background-color: #003100;
+        }
+    </style>
+    <style>
+     input[type="submit"] {
+        background-color: #4CAF50; 
+        color: white;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+        height: 20px;
+    }
+    input[type="submit"]:hover {
+        background-color: #45a049; 
+        transform: scale(1.05);
+    }
+    input[type="submit"]:active {
+        transform: scale(0.95); 
+        box-shadow: 0 0 15px rgba(76, 175, 80, 0.5);
+    }
+    input[type="reset"] {
+        background-color: #490000; 
+        color: white;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+        height: 20px;
+    }
+    input[type="reset"]:hover {
+        background-color: #5e0000; 
+        transform: scale(1.05);
+    }
+    input[type="reset"]:active {
+        transform: scale(0.95); 
+        box-shadow: 0 0 15px #fd000080;
+    }
+        </style>
+    <center>
+        <div class="img">
+    
+        <div class="Titulo">
+ <head><h1>Necesitamos que rellenes un pequeño formulario para poder enviarte el libro a casa</h1></head>
+    </div>
+   <div class="pedir">
+<body>
+    <form>
+        <label for="name">Nombre:</label><br>
+        <input type="text" name="nombre"><br>
+    </form>
+    <form>
+        <label for="Primer apellido">Primer Apellido:</label><br>
+        <input type="text" name="Primer Apellido"><br>
+    </form> 
+    <form>
+        <label for="Apellido2">Segundo Apellido:</label><br>
+        <input type="text" name="Apellido"><br>
+    </form>
+    <form>
+        <label for="Telefono">Telefono:</label><br>
+        <input type="number" name="Telfono"><br>
+    </form>
+    <form>
+        <label for="CP">Codigo Postal</label><br>
+        <input type="number" name="CP"><br>
+    </form>
+    <form>
+        <label for="Direccion">Direccion:</label><br>
+        <textarea type="Adress" name="Direccion"></textarea><br>
+    </form>
+    <form>
+        <label for="Correo Electronico">Correo Electronico:</label><br>
+        <input type="email" name="Correo Electronico"><br>
+    </form>
+    <div class="sexo">
+        <label>Genero:</label><br>
+        <input type="radio" name="Sexo" value="Hombre">
+        <label for="Hombre">Hombre</label><br>
+        <input type="radio" name="Sexo" value="Mujer">
+        <label for="otro">Mujer</label><br>
+        <input type="radio" name="Sexo" value="otro">
+        <label for="otro">Otro</label><br>
+        <input type="radio" name="Sexo" value="NC">
+        <label for="NC">Prefiero no contestar</label><br>
+    </div>
+    <form>
+        <label for="Cumpleaños">Selecciona tu cumpleaños: </label><br>
+        <input type="date" name="Cumpleaños"><br>
+    </form>
+    <form>
+        <label for="pregunta">¿Porque quieres este libro?</label><br>
+        <textarea cols="30" rows="15" name="pregunta"></textarea>
+    </form>
+    <form>
+        <input type="submit" value="PEDIR">
+        <input type="Reset" value="BORRAR TODO">
+    </form>
+</div>
+    <div class="fin">
+        <p><h1>MUCHAS GRACIAS!</h1></p>
+    </div>
+</div>
+
+</center>
+</body>
+</html>

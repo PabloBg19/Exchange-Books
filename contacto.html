@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Contacto</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; 
+            height: 130vh; 
+            margin: 0;
+            padding-top: 20px; 
+            overflow-y: auto;
+            background-image: url(Imagenes/contacto.jpg);
+            background-size:cover
+        }
+        .form-container {
+            background: #012002;
+            color: white;
+            padding: 30px;
+            border-radius: 8px;
+            max-width: 500px;
+            width: 90%; 
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        input, textarea, select {
+            width: 96%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+            background-color: white;
+            color: #333; 
+            transition: border-color 0.3s;
+        }
+        input:focus, select:focus, textarea:focus {
+            border-color: #76b852;
+            outline: none;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50; 
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049; 
+            transform: scale(1.05);
+        }
+        input[type="submit"]:active {
+            transform: scale(0.95);
+            box-shadow: 0 0 15px rgba(76, 175, 80, 0.5);
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .checkbox-container, .radio-container {
+            margin: 10px 0;
+        }
+        .checkbox-container label, .radio-container label {
+            display: inline-block;
+            margin-right: 10px;
+        }
+        input[type="reset"] {
+            background-color: #690000; 
+            color: rgb(255, 255, 255);
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+        }
+        input[type="reset"]:hover {
+            background-color: hsl(0, 100%, 24%); 
+            transform: scale(1.05);
+        }
+        input[type="reset"]:active {
+            transform: scale(0.95);
+            box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <h2>Contacto</h2>
+        <form action="#" method="post" enctype="multipart/form-data">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+
+            <label for="email">Correo electrónico:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="telefono">Número de teléfono:</label>
+            <input type="tel" id="telefono" name="telefono" required>
+
+            <label for="direccion">Dirección:</label>
+            <input type="text" id="direccion" name="direccion">
+
+            <label for="tema">Tema:</label>
+            <select id="tema" name="tema" required>
+                <option value="">Seleccione un tema</option>
+                <option value="consulta">Consulta</option>
+                <option value="sugerencia">Sugerencia</option>
+                <option value="reclamo">Reclamo</option>
+                <option value="otro">Otro</option>
+            </select>
+
+            <label for="tipo_libro">Tipo de libro de interés:</label>
+            <select id="tipo_libro" name="tipo_libro" required>
+                <option value="">Seleccione un tipo</option>
+                <option value="ficcion">Ficción</option>
+                <option value="no_ficcion">No Ficción</option>
+                <option value="infantil">Infantil</option>
+                <option value="cientifico">Científico</option>
+                <option value="otros">Otros</option>
+            </select>
+
+            <label for="fecha">Fecha de interés:</label>
+            <input type="date" id="fecha" name="fecha">
+
+            <label>Preferencias de contacto:</label>
+            <div class="radio-container">
+                <label>
+                    <input type="radio" name="preferencia_contacto" value="email" required> Correo electrónico
+                </label>
+                <label>
+                    <input type="radio" name="preferencia_contacto" value="telefono"> Teléfono
+                </label>
+            </div>
+
+            <label for="mensaje">Mensaje:</label>
+            <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+
+            <div class="checkbox-container">
+                <label>
+                    <input type="checkbox" name="boletin" value="si"> Quiero recibir el boletín informativo.
+                </label>
+            </div>
+
+            <label for="archivo">Adjuntar archivo:</label>
+            <input type="file" id="archivo" name="archivo">
+
+            <input type="submit" value="Enviar">
+            <input type="reset"  value="Borrar">
+        </form>
+    </div>
+
+</body>
+</html>

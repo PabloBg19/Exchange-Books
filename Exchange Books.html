@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Exchange books</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .footer{
+            background-image: url(/Imagenes/simple\ Roman\ Empire\ themed\ background\ for\ a\ storytelling\ website\ in\ desktop\ format.png);
+        }
+        .body{
+            background-color:moccasin
+        }
+        .margin{
+            background-color:  rgb(0, 29, 11);
+            color: rgb(255, 255, 255);
+            height: 30px;
+            display: flex;
+            font-family: cursive;
+            font-size: 0.5em;
+            justify-content: center;
+            position:fixed;
+            width: 100%; 
+            left: 0; 
+            top: 0; 
+        }
+        .margin a{
+            background-color: rgb(0, 29, 11);
+            color: rgb(255, 255, 255);
+
+        }
+        .cabezera {
+            background-color: rgb(0, 29, 11);
+            margin: 0;
+            color: black;
+            height: 80px;
+            display: flex;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 0.8em;
+            justify-content: space-around;
+            width: 100%;
+            
+           
+        }
+        .cabezera a {
+            background-color: rgb(0, 29, 11);
+            color: rgb(255, 255, 255);
+        }
+        .h1 {
+            font-size: 1.8em;
+            line-height: 1.5em;
+            margin: 0px;
+            justify-content: end;
+            font-weight: 300;
+        }
+        .logo {
+            float: left;
+            padding: 20px 0 0 20px;
+            text-decoration: none;
+            font-size: 2em;
+        }
+        .buscador {
+            text-align: center;
+            justify-content: center;
+            padding: 1.5em;
+        }
+        .nav {
+            float: right;
+        }
+        nav ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            padding-right: 20px;
+            justify-content: end;
+        }
+        nav ul li {
+            display: inline-block;
+            line-height: 80px;
+        }
+        nav ul li a {
+            display: block;
+            padding: 0 10px;
+            text-decoration: none;
+        }
+        nav link{
+            color: black;
+        }
+        .libro {
+            justify-content: baseline;
+            display: block;
+            margin: 5px;
+        }
+        .imagen, .fantas, .terror, .romance {
+            margin: 2px;
+            color: black;
+            display: flex;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 1em;
+            padding: 0.5em;
+            flex-wrap: wrap; 
+            justify-content: space-around;
+        }
+        .espacio1 {
+            margin: 40px 0; 
+        }
+        hr {
+            height: 6px;
+            background-color: rgb(0, 29, 11);
+            color: rgb(0, 29, 11);
+        }
+        .espacio2 {
+            margin: 30px 0; 
+        }
+        .romance{
+            display: flex;
+        }
+        button {
+    background-color: #003f02; 
+    color: white; 
+    border: none; 
+    padding: 12px 24px; 
+    font-size: 16px; 
+    cursor: pointer; 
+    border-radius: 8px; 
+    transition: background-color 0.3s, transform 0.3s; 
+}
+
+button:hover {
+    background-color: #45a049; 
+    transform: scale(1.05);
+}
+
+button p {
+    margin: 0;
+    padding: 0;
+    text-align: center; 
+}
+
+a {
+    text-decoration:solid; 
+    color: white; 
+}
+        
+        
+        
+        /* Media queries para dispositivos móviles y pantallas pequeñas */
+        @media (max-width: 768px) {
+            .cabezera {
+                flex-direction: column;
+                align-items: center;
+                height: auto;
+            }
+            
+            .cabezera img {
+                width: 60px;
+                height: 60px;
+            }
+        
+            .buscador {
+                width: 100%;
+                padding: 0.5em;
+            }
+        
+            nav ul {
+                padding: 0;
+                text-align: center;
+            }
+        
+            nav ul li {
+                display: block;
+                line-height: 40px;
+            }
+        
+            .h1 {
+                font-size: 1em;
+            }
+            .espacio1 {
+                margin: 40px 0;
+            }
+        
+            .espacio2 {
+                margin: 20px 0;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .cabezera {
+                height: auto;
+                padding: 10px;
+            }
+        
+            nav ul {
+                padding-right: 10px;
+            }
+            .h1 {
+                font-size: 1.2em;
+            }
+            .espacio1{
+                margin: 15px 0;
+            }
+             .espacio2 {
+                margin: 30px 0;
+            }
+            
+            
+        }
+    </style>
+</head>
+<body class="body">
+    <section>
+        <header class="margin">
+            <div class="img2">
+                <img src="Imagenes/Logo.jpg" width="30" height="30">
+            </div>
+            <div>
+                <h1>Exchange Books</h1>
+            </div>
+            <div>
+                <img src="Imagenes/Logo.jpg" width="30" height="30">
+            </div>
+            </div>
+        </header>
+        <div class="espacio2"></div> <!-- Spacer -->
+    <header class="cabezera">
+        <div class="img">
+            <img src="Imagenes/Logo.jpg" width="80" height="80">
+        </div>
+        <a class="logo" href="#">
+            <span class="nombre">Exchange books</span>
+        </a>
+        
+        <div class="buscador">
+            <form method="get" id="search-form">
+                <fieldset>
+                    <input type="text" id="search-input" placeholder="Buscar"/>
+                    <input class="search-button" type="submit" value="Buscar"/>
+                </fieldset>
+            </form>
+        </div>
+        <nav class="nav">
+            <ul class="h1">
+                <li><a href="./subir libro.html">Tus libros</a></li>
+                <li><a href="./Blog.html">Blog</a></li>
+                <li><a href="./contacto.html">Contacto</a></li>
+                <li><a href="./crear_historia.html">Crear Historia</a></li>
+                <li><a href="./inicio sesion.html">Tu cuenta</a></li>
+                <li><a href="./quiz.html">Quiz</a></li>
+            </ul>
+        </nav>
+    </header>
+</section>
+<center>
+    <center>
+        <img src="Imagenes/gif.gif" width="500" height="100">
+    </center>
+</center>
+
+  
+<div class="espacio1"></div> <!-- Spacer -->
+
+    <div class="libro">
+        <h2>LIBROS DE HISTORIA</h2>
+        <div class="imagen">
+            <div class="corazon">
+                <img src="Imagenes/El-corazon-del-mundo.webp" width="200" height="200">
+                <p>autor: Peter Frankopan</p>
+                <p>estado: Perfecto estado</p>
+                <p>precio: 2 Tiquets</p>
+                <button type="submit"><p><a href="./comprar.html">PEDIR</a></p></button>
+            </div>
+            <div class="sr">
+                <img src="Imagenes/sr.webp" width="200" height="200">
+                <p>autor: Alcala Zamora</p>
+                <p>estado: Buen estado</p>
+                <p>precio: 1 Tiquets</p>
+                <button stype="submit"><p><a href="./comprar.html">PEDIR</a></p></button>
+            </div>
+            <div class="mein">
+                <img src="Imagenes/amor y sexualidad.webp" width="200" height="200">
+                <p>autor: ramiro calle</p>
+                <p>estado: Perfecto estado</p>
+                <p>precio: 1 tiquets</p>
+                <button stype="submit"><p><a href="./comprar.html">PEDIR</a></p></button>
+            </div>
+            <div>
+                <img src="Imagenes/guerreros de iberia.webp" width="200" height="200">
+                <p>autor: Benjamin Hinarejos</p>
+                <p>estado: Buen Estado</p>
+                <p>precio: 1 tiquets</p>
+                <button stype="submit"><p><a href="./comprar.html">PEDIR</a></p></button>
+            </div>
+            <div >
+                <img src="Imagenes/historia de medina del campo.webp" width="200" height="200">
+                <p>autor: D. Gerardo Moraleja</p>
+                <p>estado: usado</p>
+                <p>precio: 2 tiquets</p>
+                <button stype="submit"><p><a href="./comprar.html">PEDIR</a></p></button>
+            </div>
+            <div >
+                <img src="Imagenes/mein.webp" width="200" height="200">
+                <p>autor: Adolf Hitler</p>
+                <p>estado: Perfecto estado</p>
+                <p>precio: 1 tiquets</p>
+                <button stype="submit"><p><a href="./comprar.html">PEDIR</a></p></button>
+            </div>
+            <div >
+                <img src="Imagenes/senderos de gloria.webp" width="200" height="200">
+                <p>autor: Humphrey Cobb</p>
+                <p>estado: Buen Estado</p>
+                <p>precio: 2 tiquets</p>
+                <button stype="submit"><p><a href="./comprar.html">PEDIR</a></p></button>
+            </div>
+            <div>
+                <img src="Imagenes/a china antiga.webp" width="200" height="200">
+                <p>autor: William Watson</p>
+                <p>estado: Usado</p>
+                <p>precio: 1 tiquets</p>
+                <button stype="submit"><p><a href="./comprar.html">PEDIR</a></p></button>
+            </div>
+        </div>
+    </div>  
+
+    <div class="espacio2"></div> <!-- Spacer -->
+
+   
+        <h2>LIBROS DE FANTASIA</h2> 
+        <div class="fantas">
+        <div>
+            <img src="Imagenes/el reino de la fantasia.webp" width="200" height="200">
+            <p>autor: Geronimo Stilton</p>
+            <p>estado: Usado</p>
+            <p>precio: 1 tiquets</p>
+            <button stype="submit"><p><a href="./comprar.html">PEDIR</a></p></button>
+        </div>
+        <div>
+            <img src="Imagenes/alas de hierro.webp" width="200" height="200">
+            <p>autora: Jennifer Armentrout</p>
+            <p>estado:perfecto estado</p>
+            <p>precio: 1 tiquets</p>
+            <button stype="submit"><p><a href="./comprar.html">PEDIR</a></p></button>
+        </div>
+        <div>
+            <img src="Imagenes/alianza-de-sangre lena valenti.jpg" width="200" height="200">
+            <p>autora:lena valenti</p>
+            <p>estado:perfecto estado</p>
+            <p>precio: 1 tiquets</p>
+            <button stype="submit"><p><a href="./comprar.html">PEDIR</a></p></button>
+        </div>
+        <div>
+            <img src="Imagenes/Casa dse tierra y sangre Sarah j.Maas.jpg" width="200" height="200">
+            <p>autora: Sarah j.Maas</p>
+            <p>estado:perfecto estado</p>
+            <p>precio: 2 tiquets</p>
+            <button stype="submit"><p><a href="./comprar.html">PEDIR</a></p></button>
+        </div>
+        <div>
+            <img src="Imagenes/juegos de fantasia gianni rodari.webp" width="200" height="200">
+            <p>autora: gianni rodari</p>
+            <p>estado:Buen estado</p>
+            <p>precio: 1 tiquets</p>
+            <button stype="submit"><p><a href="./comprar.html">PEDIR</a></p></button>
+        </div>
+        <div>
+            <img src="Imagenes/la-historia-interminable-edicion-ilustrada-coleccion-alfaguara-clasicos michael ende.jpg" width="200" height="200">
+            <p>autora: michael ende</p>
+            <p>estado:perfecto estado</p>
+            <p>precio: 3 tiquets</p>
+            <button stype="submit"><p><a href="./comprar.html">PEDIR</a></p></button>
+        </div>
+        <div>
+            <img src="Imagenes/reckless-edicion-especial-saga-powerless-2 lauren roberts.jpg" width="200" height="200">
+            <p>autora: lauren roberts</p>
+            <p>estado:perfecto estado</p>
+            <p>precio: 1 tiquets</p>
+            <button stype="submit"><p><a href="./comprar.html">PEDIR</a></p></button>
+        </div>
+        <div>
+            <img src="Imagenes/juego-de-tronos-cancion-de-hielo-y-fuego-1 george rr martin.jpg" width="200" height="200">
+            <p>autora: george RR Martin</p>
+            <p>estado:perfecto estado</p>
+            <p>precio: 1 tiquets</p>
+            <button stype="submit"><p><a href="./comprar.html">PEDIR</a></p></button>
+        </div> 
+    </div>
+    <div class="espacio2"></div>
+     <!-- Spacer -->
+    <h2>LIBROS DE ROMANCE</h2> 
+    <div class="terror">
+        <div>
+            <img src="Imagenes/azul cielo mar carrion.webp" width="200" height="200">
+            <p>autor: mar carrion</p>
+            <p>estado: Buen estado</p>
+            <p>precio: 1 tiquets</p>
+            <button stype="submit"><p><a href="./comprar.html">PEDIR</a></p></button>
+        </div>
+        <div>
+            <img src="Imagenes/backstage angie ocampo.webp" width="200" height="200">
+            <p>autora: angie campo</p>
+            <p>estado:perfecto estado</p>
+            <p>precio: 1 tiquets</p>
+            <button stype="submit"><p><a href="./comprar.html">PEDIR</a></p></button>
+        </div>
+        <div>
+            <img src="Imagenes/ballet romantico- Francisco Rey Alfonso.webp" width="200" height="200">
+            <p>autora:rey alfonso</p>
+            <p>estado:perfecto estado</p>
+            <p>precio: 1 tiquets</p>
+            <button stype="submit"><p><a href="./comprar.html">PEDIR</a></p></button>
+        </div>
+        <div>
+            <img src="Imagenes/corazon en el cafe- rita morriagan.webp" width="200" height="200">
+            <p>autora: rita morriagan</p>
+            <p>estado:perfecto estado</p>
+            <p>precio: 2 tiquets</p>
+            <button stype="submit"><p><a href="./comprar.html">PEDIR</a></p></button>
+        </div>
+        <div>
+            <img src="Imagenes/aquellas mujercitas luisa may alcott.webp" width="200" height="200">
+            <p>autora: luisa may alcott</p>
+            <p>estado:Buen estado</p>
+            <p>precio: 1 tiquets</p>
+            <button stype="submit"><p><a href="./comprar.html">PEDIR</a></p></button>
+        </div>
+        <div>
+            <img src="Imagenes/primer down- grace delly.webp" width="200" height="200">
+            <p>autora: grace delly</p>
+            <p>estado:perfecto estado</p>
+            <p>precio: 3 tiquets</p>
+            <button stype="submit"><p><a href="./comprar.html">PEDIR</a></p></button>
+        </div>
+        <div>
+            <img src="Imagenes/un amor matematico- angy skay.webp" width="200" height="200">
+            <p>autora: angy skay</p>
+            <p>estado:perfecto estado</p>
+            <p>precio: 1 tiquets</p>
+            <button stype="submit"><p><a href="./comprar.html">PEDIR</a></p></button>
+        </div>
+        <div>
+            <img src="Imagenes/la renuncia- antonio losada.webp" width="200" height="200">
+            <p>autora: antonio losada</p>
+            <p>estado:perfecto estado</p>
+            <p>precio: 1 tiquets</p>
+            <button stype="submit"><p><a href="./comprar.html">PEDIR</a></p></button>
+        </div>
+        </div>
+        <div class="espacio2"></div>
+        <!-- Spacer -->
+     </div> <h2>LIBROS DE TERROR</h2>  
+     <div class="romance">
+           <div>
+               <img src="Imagenes/dracula bram stoker.webp" width="200" height="200">
+               <p>autor: Bram Stoker</p>
+               <p>estado: Usado</p>
+               <p>precio: 1 tiquets</p>
+               <button stype="submit"><p><a href="./comprar.html">PEDIR</a></p></button>
+           </div>
+           <div>
+               <img src="Imagenes/el angel de la muerte steve alte.webp" width="200" height="200">
+               <p>autora: Steve Alte</p>
+               <p>estado:perfecto estado</p>
+               <p>precio: 2 tiquets</p>
+               <button stype="submit"><p><a href="./comprar.html">PEDIR</a></p></button>
+           </div>
+           <div>
+               <img src="Imagenes/el castillo del monje ramiro ribas.webp" width="200" height="200">
+               <p>autora:ramiro ribas</p>
+               <p>estado:perfecto estado</p>
+               <p>precio: 1 tiquets</p>
+               <button stype="submit"><p><a href="./comprar.html">PEDIR</a></p></button>
+           </div>
+           <div>
+               <img src="Imagenes/el fantasma de la opera gaston leroux.webp" width="200" height="200">
+               <p>autora: gaston leroux</p>
+               <p>estado:perfecto estado</p>
+               <p>precio: 2 tiquets</p>
+               <button stype="submit"><p><a href="./comprar.html">PEDIR</a></p></button>
+           </div>
+           <div>
+               <img src="Imagenes/el rey de amarillo rw chambers.webp" width="200" height="200">
+               <p>autora: rw chambers</p>
+               <p>estado:Buen estado</p>
+               <p>precio: 1 tiquets</p>
+               <button stype="submit"><p><a href="./comprar.html">PEDIR</a></p></button>
+           </div>
+           <div>
+               <img src="Imagenes/frankestein mary shelley.webp" width="200" height="200">
+               <p>autora:mary shelley</p>
+               <p>estado:perfecto estado</p>
+               <p>precio: 3 tiquets</p>
+               <button stype="submit"><p><a href="./comprar.html">PEDIR</a></p></button>
+           </div>
+           <div>
+               <img src="Imagenes/it stephen king.webp" width="200" height="200">
+               <p>autora: stephen king</p>
+               <p>estado:usado</p>
+               <p>precio: 1 tiquets</p>
+               <button stype="submit"><p><a href="./comprar.html">PEDIR</a></p></button>
+           </div>
+           <div>
+               <img src="Imagenes/relatos de terror, varios.webp" width="200" height="200">
+               <p>autora: varios</p>
+               <p>estado:perfecto estado</p>
+               <p>precio: 1 tiquets</p>
+               <button stype="submit"><p><a href="./comprar.html">PEDIR</a></p></button>
+           </div>
+     </div>    
+</body>
+<footer class="cabezera">
+    <nav class="nav">
+        <ul class="h1">
+            <li><a href="./crear_historia.html">Crea tu propia historia y publicala</a></li>
+        </ul>
+    </nav>
+</footer>
+</html>

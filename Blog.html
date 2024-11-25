@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    <style>
+        body {
+            background-image: url(Imagenes/blog.webp); 
+            background-repeat: no-repeat; 
+            background-size: cover; 
+            background-position: center;
+            background-attachment: fixed; 
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            max-width: 1000px;
+            width: calc(100% - 40px);
+            margin: 20px auto;
+            box-sizing: border-box;
+        }
+
+        .cabezera {
+            background-color: rgb(0, 29, 11);
+            justify-content: space-between;
+            display: flex;
+            align-items: center;
+            color: rgb(255, 255, 255);
+            font-size: 2.5em;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .QsP, .SbNP {
+            font-size: 2em;
+            justify-content: center;
+            margin: 20px 0;  
+        }
+
+        .SN, .sbn {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 1.2em;
+            line-height: 1.6em;
+            text-align: justify;
+            padding: 10px;
+        }
+
+        .prg {
+            font-size: 1.2em;
+        }
+
+        textarea {
+            width: calc(100% - 22px);
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-top: 10px;
+        }
+
+        input[type="submit"], input[type="reset"] {
+            padding: 10px 20px;
+            margin: 10px 5px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover, input[type="reset"]:hover {
+            background-color: #45a049;
+        }
+
+        .footer {
+            text-align: center;
+            font-size: 1.5em;
+            margin-top: 20px;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .cabezera, .QsP, .SbNP {
+                font-size: 1.5em;
+            }
+            .SN, .sbn {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="cabezera">
+            <img src="Imagenes/Logo.jpg" width="80" height="80">    
+            <p class="nombre">Sobre Exchange Books</p>
+            <img src="Imagenes/Logo.jpg" width="80" height="80">
+        </header>
+        <div class="content">
+            <header class="QsP">
+                ¿Quienes somos?
+            </header>
+            <div class="SN">
+                <p>Bienvenido a Exchange Books, tu espacio dedicado al intercambio de libros. Soy Pablo Belascoain, el fundador y único administrador de esta plataforma. Mi pasión por la lectura y el deseo de crear una comunidad de amantes de los libros me llevó a establecer este proyecto.</p>
+
+                <p>En Exchange Books, creemos que cada libro tiene una historia que contar y merece ser compartido. Nuestro objetivo es fomentar el trueque de libros entre lectores de todas partes, promoviendo la sostenibilidad y el amor por la literatura. Aquí, podrás encontrar un espacio seguro y amigable donde puedes ofrecer tus libros y descubrir nuevos títulos que enriquecerán tu biblioteca personal.</p>
+                
+                <p>Ya seas un ávido lector, un coleccionista o simplemente alguien que busca darle una nueva vida a sus libros, aquí encontrarás la oportunidad perfecta para conectar con otros apasionados de la lectura. Juntos, hagamos de este un lugar donde las historias circulen y el conocimiento se comparta.</p>
+                
+                <p>¡Únete a nosotros y transforma tu experiencia de lectura!</p>
+            </div>
+        </div>
+        <div class="content">
+            <header class="SbNP">
+                ¿Por qué Exchange Books?
+            </header>
+            <div class="sbn">
+                <p>La idea de Exchange Books surge de una pasión profunda por la lectura y la creencia en la importancia del intercambio cultural. En un mundo donde la tecnología y el consumo rápido dominan nuestras vidas, quise crear un espacio donde los amantes de los libros pudieran conectar, compartir y descubrir nuevas historias de manera sostenible.</p>
+
+                <p>El trueque de libros no solo fomenta la economía circular, sino que también promueve la comunidad y la amistad entre los lectores. Cada libro tiene una historia que contar, no solo en sus páginas, sino también a través de las manos que lo han sostenido. En Exchange Books, queremos que cada intercambio sea una oportunidad para que cada lector encuentre un nuevo tesoro literario y comparta sus propias vivencias.</p>
+
+                <p>Reflexionando sobre la historia, el Imperio Romano se destacó no solo por sus conquistas territoriales, sino también por su intercambio de ideas y conocimientos. Los romanos valoraban la educación y el acceso a la literatura, promoviendo bibliotecas y foros donde se discutían obras clásicas. Así como en aquella época, creemos que el verdadero valor de los libros radica en su capacidad para unirnos y enriquecer nuestras vidas.</p>
+
+                <p>Con Exchange Books, invito a todos a revivir esa tradición de intercambio y diálogo literario, creando una comunidad donde cada página leída sea una puerta abierta a nuevas experiencias y conexiones.</p>
+            </div>
+        </div>
+        <div class="content">
+            <label for="question">¿Algo que aportar?</label><br>
+            <textarea cols="80" rows="10" name="question"></textarea><br>
+            <input type="submit" value="Enviar">
+            <input type="reset" value="Borrar">
+        </div>
+        <div class="footer">
+            <p><b>EXCHANGE BOOKS</b></p>
+        </div>
+    </div>
+</body> 
+</html>
+

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editor de Historias</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+            color: #ffffff;
+            background-image: url(Imagenes/simple\ Roman\ Empire\ themed\ background\ for\ a\ storytelling\ website\ in\ desktop\ format.png);
+            padding-top: 0px; 
+            height: 0;
+            margin: 0;
+            
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: rgb(0, 66, 9);
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        input[type="submit"], button {
+            background: #000000;
+            color: #ffffff;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        input[type="submit"]:hover, button:hover {
+            background: #4cae4c;
+        }
+        #editor {
+            border: 1px solid #ccc;
+            min-height: 200px;
+            padding: 10px;
+            border-radius: 5px;
+            background: #ffffff;
+            overflow-y: auto;
+            color: #000000;
+        }
+        .story {
+            margin: 20px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background: #f9f9f9;
+            color: #000000;
+        }
+        .toolbar {
+            margin-bottom: 10px;
+            
+        }
+        #friendStories {
+            margin-top: 40px;
+            border-top: 1px solid #ccc;
+            padding-top: 20px;
+            color: hsl(0, 0%, 100%);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Editor de Historias</h1>
+        <div class="toolbar">
+            <button onclick="document.execCommand('bold')">Negrita</button>
+            <button onclick="document.execCommand('italic')">Cursiva</button>
+            <button onclick="document.execCommand('underline')">Subrayado</button>
+            <input type="color" id="textColor" onchange="changeColor(this.value)">
+            <button onclick="document.execCommand('insertImage', false, prompt('URL de la imagen:'))">Insertar Imagen</button>
+        </div>
+        <form id="chapterForm">
+            <div class="form-group">
+                <label for="chapterTitle">Título del Capítulo</label>
+                <input type="text" id="chapterTitle" required>
+            </div>
+            <div class="form-group">
+                <label for="chapterContent">Contenido del Capítulo</label>
+                <div id="editor" contenteditable="true" placeholder="Escribe tu capítulo aquí..."></div>
+            </div>
+            <input type="submit" value="Agregar Capítulo">
+        </form>
+
+        <h2>Capítulos Agregados</h2>
+        <div id="chapterList"></div>
+
+        <h2>Publicar Historia</h2>
+        <form id="storyForm">
+            <div class="form-group">
+                <label for="title">Título de la Historia</label>
+                <input type="text" id="title" required>
+            </div>
+            <div class="form-group">
+                <label for="cover">Portada (URL de imagen)</label>
+                <input type="text" id="cover" placeholder="Ingresa la URL de la portada">
+            </div>
+            <input type="submit" value="Publicar Historia">
+            <button type="button" onclick="generateDocument()">Generar Documento</button>
+        </form>
+        
+        <h2>Historias Publicadas</h2>
+        <div id="storyList"></div>
+
+        <div id="friendStories">
+            <h2>Historias de Amigos</h2>
+            <p>Aún no tienes amigos para mostrar historias.</p>
+        </div>
+    </div>
+
+    <script>
+        const chapterList = document.getElementById('chapterList');
+        const storyList = document.getElementById('storyList');
+        let chapters = [];
+
+        // Cargar historias del localStorage al cargar la página
+        window.onload = function() {
+            const stories = JSON.parse(localStorage.getItem('stories')) || [];
+            stories.forEach((story, index) => displayStory(story, index));
+        };
+
+        // Mostrar historia en la lista
+        function displayStory(story, index) {
+            const storyDiv = document.createElement('div');
+            storyDiv.classList.add('story');
+            storyDiv.innerHTML = `
+                <h3>${story.title}</h3>
+                ${story.cover ? `<img src="${story.cover}" alt="Portada" style="max-width: 100%; height: auto;">` : ''}
+                <h4>Capítulos:</h4>
+                <ul>
+                    ${story.chapters.map(chapter => `<li><strong>${chapter.title}</strong><div>${chapter.content}</div></li>`).join('')}
+                </ul>
+                <button onclick="deleteStory(${index})">Eliminar</button>
+            `;
+            storyList.appendChild(storyDiv);
+        }
+
+        // Agregar capítulo al array
+        document.getElementById('chapterForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const chapterTitle = document.getElementById('chapterTitle').value.trim();
+            const chapterContent = document.getElementById('editor').innerHTML.trim();
+
+            if (chapterTitle === "" || chapterContent === "") {
+                alert("Por favor, completa todos los campos del capítulo.");
+                return;
+            }
+
+            chapters.push({ title: chapterTitle, content: chapterContent });
+            displayChapter(chapterTitle, chapterContent);
+            document.getElementById('chapterForm').reset();
+            document.getElementById('editor').innerHTML = ''; // Limpiar el editor
+        });
+
+        // Mostrar capítulos en la lista
+        function displayChapter(title, content) {
+            const chapterDiv = document.createElement('div');
+            chapterDiv.innerHTML = `<strong>${title}</strong><div>${content}</div>`;
+            chapterList.appendChild(chapterDiv);
+        }
+
+        // Publicar la historia
+        document.getElementById('storyForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const title = document.getElementById('title').value.trim();
+            const cover = document.getElementById('cover').value.trim();
+
+            if (title === "" || chapters.length === 0) {
+                alert("Por favor, completa todos los campos obligatorios y agrega al menos un capítulo.");
+                return;
+            }
+
+            const story = { title, chapters, cover, content: chapters.map(chapter => `<h2>${chapter.title}</h2><div>${chapter.content}</div>`).join('') };
+            const stories = JSON.parse(localStorage.getItem('stories')) || [];
+            stories.push(story);
+            localStorage.setItem('stories', JSON.stringify(stories));
+
+            displayStory(story, stories.length - 1); // Mostrar historia publicada
+            document.getElementById('storyForm').reset();
+            document.getElementById('title').value = ''; // Limpiar el título
+            document.getElementById('cover').value = ''; // Limpiar la portada
+            chapterList.innerHTML = ''; // Limpiar la lista de capítulos
+            chapters = []; // Reiniciar capítulos
+        });
+
+        // Generar un documento con la historia
+        function generateDocument() {
+            const title = document.getElementById('title').value.trim();
+            const cover = document.getElementById('cover').value.trim();
+
+            if (title === "" || chapters.length === 0) {
+                alert("Por favor, completa todos los campos obligatorios y agrega al menos un capítulo antes de generar el documento.");
+                return;
+            }
+
+            let content = `<h1>${title}</h1>`;
+            if (cover) {
+                content += `<img src="${cover}" alt="Portada" style="max-width: 100%; height: auto;"><br>`;
+            }
+            chapters.forEach(chapter => {
+                content += `<h2>${chapter.title}</h2><div>${chapter.content}</div>`;
+            });
+        }
+// Generar un documento con la historia (continuación)
+function generateDocument() {
+    const title = document.getElementById('title').value.trim();
+    const cover = document.getElementById('cover').value.trim();
+
+    if (title === "" || chapters.length === 0) {
+        alert("Por favor, completa todos los campos obligatorios y agrega al menos un capítulo antes de generar el documento.");
+        return;
+    }
+
+    let content = `<h1>${title}</h1>`;
+    if (cover) {
+        content += `<img src="${cover}" alt="Portada" style="max-width: 100%; height: auto;"><br>`;
+    }
+    chapters.forEach(chapter => {
+        content += `<h2>${chapter.title}</h2><div>${chapter.content}</div>`;
+    });
+
+    const blob = new Blob([content], { type: 'text/html' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${title}.html`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+
+// Eliminar historia
+function deleteStory(index) {
+    if (confirm("¿Estás seguro de que deseas eliminar esta historia?")) {
+        const stories = JSON.parse(localStorage.getItem('stories')) || [];
+        stories.splice(index, 1); // Eliminar historia
+        localStorage.setItem('stories', JSON.stringify(stories));
+        location.reload(); // Recargar para actualizar la lista
+    }
+}
+
+function changeColor(color) {
+    document.execCommand('foreColor', false, color);
+}
+</script>
+</body>
+</html>
