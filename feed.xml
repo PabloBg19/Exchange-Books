@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+    <channel>
+        <title>Exchange Books</title>
+        <link>https://github.com/PabloBg19/Exchange-Books.git</link>
+        <description>Pagina web que trata sobre el trueque de libros online, cada persona sube libros y tiene derecho a conseguir otro libro</description>
+        <item>
+            <title>Index</title>
+            <link>https://github.com/PabloBg19/Exchange-Books/blob/main/Index.html</link>
+            <description>Pagina principal de la web, donde se puede ver el listado de libros y los diferentes links para navegar por la web</description>
+        </item>
+        <item>
+            <title>Inicio de sesion</title>
+            <link>https://github.com/PabloBg19/Exchange-Books/blob/main/Index.html</link>
+            <description>Pagina principal de la web, donde se puede ver el listado de libros y los diferentes links para navegar por la web</description>
+        </item>
+    </channel>
+</rss>
