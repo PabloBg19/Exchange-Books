@@ -2,17 +2,38 @@
 <rss version="2.0">
     <channel>
         <title>Exchange Books</title>
-        <link>https://github.com/PabloBg19/Exchange-Books.git</link>
+        <link>https://exchangebooks.netlify.app/</link>
         <description>Pagina web que trata sobre el trueque de libros online, cada persona sube libros y tiene derecho a conseguir otro libro</description>
-        <item>
-            <title>Index</title>
-            <link>https://github.com/PabloBg19/Exchange-Books/blob/main/Index.html</link>
-            <description>Pagina principal de la web, donde se puede ver el listado de libros y los diferentes links para navegar por la web</description>
-        </item>
+        <language>es</language>
         <item>
             <title>Inicio de sesion</title>
-            <link>https://github.com/PabloBg19/Exchange-Books/blob/main/Index.html</link>
-            <description>Pagina principal de la web, donde se puede ver el listado de libros y los diferentes links para navegar por la web</description>
+            <link>https://exchangebooks.netlify.app/inicio%20sesion.html</link>
+            <description>Pagina para el inicio de sesión, donde puedes iniciar la sesión con tu cuenta y contraseña</description>
         </item>
+        <item>
+            <title>Registro</title>
+            <link>https://exchangebooks.netlify.app/registro</link>
+            <description>Pagina para el registro, donde puedes registrarte con tu correo y contraseña</description>
+        </item>
+        <item>
+            <title>Blog</title>
+            <link>https://exchangebooks.netlify.app/blog.html</link>
+            <description>Pagina del blog, donde puedes quienes somos y el porque hemos creado esta pagina</description>
+        </item>
+        <item>
+            <title>subir libros</title>
+            <link>https://exchangebooks.netlify.app/subir%20libro.html</link>
+            <description>Pagina para subir libros, donde puedes subir libros que ya no necesites y conseguir otros libros</description>
+        </item>
+        <item>
+            <title>comprar</title>
+            <link>https://exchangebooks.netlify.app/comprar</link>
+            <description>Pagina para comprar libros, donde puedes comprar libros de segunda mano con tiquets de otros libros que se ha subido</description>
+        </item>
+        <item>
+            <title>contacto</title>
+            <link>https://exchangebooks.netlify.app/contacto</link>
+            <description>Pagina de contacto, donde puedes contactar con nosotros para cualquier duda o sugerencia</description>
+        </item>                 
     </channel>
 </rss>
