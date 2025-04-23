@@ -34,6 +34,21 @@
             <title>contacto</title>
             <link>https://exchangebooks.netlify.app/contacto</link>
             <description>Pagina de contacto, donde puedes contactar con nosotros para cualquier duda o sugerencia</description>
-        </item>                 
+        </item>    
+        <item>
+            <title>contacto</title>
+            <link>https://exchangebooks.netlify.app/contacto</link>
+            <description>En esta pagina puedes contactar con el servicio de Exchange books por si ocurre algun problema</description>
+        </item>   
+        <item>
+            <title>crear_historia </title>  
+            <link>https://exchangebooks.netlify.app/crear_historia</link>   
+            <description>Apartado donde el usuario puede subir su propia historia</description>   
+        </item> 
+        <item>
+            <title>quiz</title>
+            <link>https://exchangebooks.netlify.app/quiz</link>
+            <description>Una vez al dia los usuarios pueden hacer un quiz que se actualiza y pueden ganar tiquets para conseguir premios</description>
+        </item>
     </channel>
 </rss>
